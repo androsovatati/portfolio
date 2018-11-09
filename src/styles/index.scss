@@ -1,7 +1,49 @@
+@font-face {
+    font-family: 'Courier';
+    src: url('./../assets/fonts/Courier New Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('./../assets/fonts/Gilroy-Extrabold.otf');
+    font-weight: 800;
+}
+
+@font-face {
+    font-family: 'Gilroy';
+    src: url('./../assets/fonts/Gilroy-Heavy.otf');
+    font-weight: 900;
+}
+
 html, body {
     width: 100%;
     height: 100%;
     font-size: 16px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Gilroy', sans-serif;
+    font-weight: 800;
 }
 
+.page {
+    display: grid;
+    grid-template-columns: 20% 30% 30% 20%;
+    grid-template-rows: 1;
+    grid-template-areas: "navigation info content socials";
+    height: 100vh;
+}
+
+.navigation {
+    grid-area: navigation;
+}
+
+.info {
+    grid-area: info;
+}
+
+.content {
+    grid-area: content;
+}
+
+.socials {
+    grid-area: socials;
+}
