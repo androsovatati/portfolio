@@ -40,7 +40,54 @@ html, body {
 }
 
 .navigation {
+    position: relative;
+    display: flex;
+    align-items: center;
     grid-area: navigation;
+
+    &__logo {
+        position: absolute;
+        top: 0;
+        left: 5vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 90px;
+        height: 90px;
+        background-color: $pink;
+        color: white;
+        font-size: 18px;
+        letter-spacing: 7px;
+        line-height: 25px;
+    }
+}
+
+.menu {
+    margin-top: 6vh;
+    margin-left: 6vw;
+    &__item {
+        cursor: pointer;
+        &:hover {
+            .menu__link {
+                opacity: .7;
+            }
+        }
+        &_active {
+            .menu__link {
+                opacity: 1;
+            }
+        }
+    }
+    &__link {
+        color: white;
+        font-size: 18px;
+        line-height: 3.5;
+        text-transform: uppercase;
+        text-decoration: none;
+        opacity: .3;
+        transition: opacity .2s ease;
+    }
 }
 
 .info {
