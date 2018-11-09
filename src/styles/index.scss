@@ -16,6 +16,11 @@
     font-weight: 900;
 }
 
+$pink: #e42ba5;
+$dark-pink: #c50f7a;
+$dark-gray: #2f2f2f;
+$extra-dark-gray: #232323;
+
 html, body {
     width: 100%;
     height: 100%;
@@ -30,6 +35,8 @@ html, body {
     grid-template-rows: 1;
     grid-template-areas: "navigation info content socials";
     height: 100vh;
+    background:#1a1a1a url('./../assets/bg.jpg');
+    background-size: cover;
 }
 
 .navigation {
@@ -41,7 +48,41 @@ html, body {
 }
 
 .content {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
     grid-area: content;
+    background: #131313 radial-gradient(circle at 100% 0%, rgba($color: $pink, $alpha: .07) 0%, transparent 80%);
+    overflow: hidden;
+
+    &__phone {
+        position: absolute;
+        &:nth-child(1) {
+            top: 5vh;
+            left: 5vh;
+            width: 15vw;
+            height: 20vw;
+            background: url('./../assets/Iphone 1.png') no-repeat center center;
+            background-size: contain;
+        }
+        &:nth-child(2) {
+            top: 45%;
+            right: 0;
+            width: 15vw;
+            height: 20vw;
+            background: url('./../assets/Iphone 2.png') no-repeat center center;
+            background-size: contain;
+            transform: translate(20%, -50%);
+        }
+    }
+
+    &__text {
+        margin: 0 2.5vw 10vh;
+        color: white;
+        font-family: Gilroy;
+        font-size: 4vw;
+        text-transform: uppercase;
+    }
 }
 
 .socials {
