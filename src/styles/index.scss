@@ -44,7 +44,48 @@ html, body {
 }
 
 .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     grid-area: info;
+    border-left: 1px solid #2b2b2b;
+
+    &__decorator {
+        color: $dark-pink;
+        font-family: 'Courier';
+        font-size: 18px;
+        font-weight: 700;
+    }
+
+    &__title {
+        margin-top: 3vh;
+        color: white;
+        font-size: 4vw;
+        letter-spacing: .3vw;
+    }
+
+    &__action {
+        $left-margin: 5vw;
+        $line-width: 3vw;
+
+        position: relative;
+        margin-top: 7vh;
+        margin-left: $left-margin;
+        color: white;
+        font-family: 'Courier';
+        font-size: 18px;
+        font-weight: 700;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -$left-margin;
+            width: $line-width;
+            height: 2px;
+            background-color: white;
+        }
+    }
 }
 
 .content {
