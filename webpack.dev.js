@@ -47,8 +47,14 @@ module.exports = {
                     }
                     // Please note we are not running postcss here
                 ]
-            }
-            ,
+            },
+            {
+                test: /\.svg/,
+                use: {
+                    loader: 'svg-url-loader',
+                    options: {}
+                }
+            },
             {
                 // Load all images as base64 encoding if they are smaller than 8192 bytes
                 test: /\.(png|jpg|gif)$/,

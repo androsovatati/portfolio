@@ -165,7 +165,7 @@ html, body {
     }
 
     &__text {
-        margin: 0 2.5vw 10vh;
+        margin: 0 2.5vw 5vw;
         color: white;
         font-family: Gilroy;
         font-size: 4vw;
@@ -174,5 +174,52 @@ html, body {
 }
 
 .socials {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 0 10vh 5vw;
     grid-area: socials;
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.5vh;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: $extra-dark-gray;
+        transition: background-color .2s ease;
+        cursor: pointer;
+        &:hover {
+            background-color: $pink;
+        }
+    }
+}
+
+.social-icon {
+    &_vk {
+        width: 20px;
+        height: 18px;
+        background: url('./../assets/vk.svg') no-repeat center center;
+        background-size: contain;
+    }
+    &_in {
+        width: 19px;
+        height: 19px;
+        background: url('./../assets/in.svg') no-repeat center center;
+        background-size: contain;
+    }
+    &_git {
+        width: 20px;
+        height: 20px;
+        background: url('./../assets/git.svg') no-repeat center center;
+        background-size: contain;
+    }
+    &_inst {
+        width: 18px;
+        height: 18px;
+        background: url('./../assets/inst.svg') no-repeat center center;
+        background-size: contain;
+    }
 }
