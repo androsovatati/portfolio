@@ -29,6 +29,15 @@ window.onload = () => {
         for (let i = 1; i <= currentSection; i++) {
             contentBlocks[i].style.top = 0;
         }
+        if (currentSection === 3) {
+            for (let i = 0; i < currentSection; i++) {
+                contentBlocks[i].style.opacity = 0;
+            }
+        } else {
+            for (let i = 0; i < currentSection; i++) {
+                contentBlocks[i].style.opacity = 1;
+            }
+        }
         menuItems[currentSection].classList.add(ACTIVE_MENU_ITEM);
     }
 
@@ -38,6 +47,9 @@ window.onload = () => {
         titleWrapper.style.transform = `translateX(${-100 * currentSection}%)`;
         for (let i = currentSection + 1; i <= 3; i++) {
             contentBlocks[i].style.top = '100%';
+        }
+        for (let i = 0; i <= currentSection; i++) {
+            contentBlocks[i].style.opacity = 1;
         }
         menuItems[currentSection].classList.add(ACTIVE_MENU_ITEM);
     }

@@ -241,6 +241,42 @@ html, body {
     }
 }
 
+#portfolio-content {
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('./../assets/content-bg.jpg') no-repeat center center;
+        background-size: cover;
+        transform: rotate(180deg);
+    }
+}
+
+#contacts-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 100%;
+
+    .contacts-form {
+        height: 60%;
+        background: rgba(19,19,19,.3);
+        border-bottom: 1px solid rgba($color: #3b3b3b, $alpha: .2);
+    }
+
+    .contacts-data {
+        height: 40%;
+        background: url('./../assets/content-bg.jpg') no-repeat center center;
+        background-size: cover;
+    }
+}
+
 .socials {
     display: flex;
     flex-direction: column;
