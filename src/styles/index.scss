@@ -265,15 +265,102 @@ html, body {
     height: 100%;
 
     .contacts-form {
-        height: 60%;
+        padding: 75px 80px;
+        height: 70%;
         background: rgba(19,19,19,.3);
         border-bottom: 1px solid rgba($color: #3b3b3b, $alpha: .2);
+        
+        &__title {
+            width: 177px;
+            color: white;
+            font-family: 'Gilroy';
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 30px;
+            text-transform: uppercase;
+            letter-spacing: 3.6px;
+        }
+
+        .form {
+            margin-top: 30px;
+
+            &__input {
+                margin-top: 15px;
+                background: transparent;
+                border: none;
+                border-bottom: 1px solid white;
+                color: white;
+                font-family: 'Courier';
+                font-size: 18px;
+                font-weight: 700;
+                line-height: 2;
+                outline: none;
+            }
+
+            &__button {
+                position: relative;
+                margin-top: 30px;
+                padding-left: 45px;
+                background: none;
+                color: white;
+                border: none;
+                font-family: 'Courier';
+                font-size: 18px;
+                font-weight: 700;
+                outline: none;
+                cursor: pointer;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 9px;
+                    left: 0;
+                    height: 2px;
+                    width: 35px;
+                    background: white;
+                }
+            }
+        }
     }
 
     .contacts-data {
-        height: 40%;
+        height: 30%;
+        padding: 75px 80px;
+        color: white;
         background: url('./../assets/content-bg.jpg') no-repeat center center;
         background-size: cover;
+        font-family: 'Courier', monospace;
+        font-size: 16px;
+        font-weight: 400;
+        
+        &__title {
+            color: #e42ba5;
+            font-family: Gilroy;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 3.6px;
+        }
+
+        &__email {
+            margin-top: 45px;
+            a {
+                padding-left: 7px;
+                color: white;
+            }
+        }
+        
+        &__skype {
+            margin-top: 7px;
+            a {
+                padding-left: 7px;
+                color: white;         
+            }
+        }
+
+        &__location {
+            margin-top: 20px;
+            color: #323232;
+        }
     }
 }
 
