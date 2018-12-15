@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     <title>TA</title>
 </head>
 <body>
@@ -53,7 +54,21 @@
             <div id="home-content" class="content-block">
                 <div class="content-block__phone"></div>
                 <div class="content-block__phone"></div>
-                <div class="content-block__text">And I'm frontend developer.</div>
+                <svg class="content-block__text">
+                    <defs>
+                        <clipPath id="clipping-text">
+                            <text x="0" y="0" dx="0" dy="0">
+                                <tspan x="0" dy="1em">AND I'M</tspan>
+                                <tspan x="0" dy="1em">FRONTEND</tspan>
+                                <tspan x="0" dy="1em">DEVELOPER</tspan>
+                            </text>
+                        </clipPath>
+                    </defs>
+                    <pattern id="bg-pattern" width="100%" height="100%">
+                        <image preserveAspectRatio="none" xlink:href="https://images.pexels.com/photos/136419/pexels-photo-136419.jpeg?cs=srgb&dl=abstract-architectural-design-architecture-136419.jpg&fm=jpg" x="0" y="0" height="100%" width="100%" />
+                    </pattern>
+                    <rect class="text-background" x="0" y="0" width="100%" height="100%" fill="url(#bg-pattern)" clip-path="url(#clipping-text)"></rect>
+                </svg>
             </div>
             <div id="about-content" class="content-block">
                 <div class="content-block__experience experience">
