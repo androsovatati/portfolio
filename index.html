@@ -101,7 +101,38 @@
                 </div>
             </div>
             <div id="portfolio-content" class="content-block">
-                <div class="content-block__">3</div>
+                <div class="content-block__header content-header">
+                    <div class="content-header__pages">
+                        <span class="page-number page-number_active">01</span>
+                        <span class="page-number">/ 05</span>
+                    </div>
+                    <div class="content-header__controls header-controls">
+                        <button id="prev-btn" class="header-controls__arrow header-controls__arrow_disabled"></button>
+                        <button id="next-btn" class="header-controls__arrow"></button>
+                    </div>
+                </div>
+                <div class="content-block__slider content-slider">
+                    <div id="urban" class="slide">
+                        <div class="slide__title">
+                            <svg>
+                                <defs>
+                                    <clipPath id="urban-text">
+                                        <text x="0" y="0" dx="0" dy="0">
+                                            <tspan x="0" dy="1em">URBAN.TECH</tspan>
+                                            <tspan x="0" dy="1em">CHALLENGE</tspan>
+                                        </text>
+                                    </clipPath>
+                                </defs>
+                                <pattern id="bg-pattern" width="100%" height="100%">
+                                    <image preserveAspectRatio="none" xlink:href="https://images.pexels.com/photos/136419/pexels-photo-136419.jpeg?cs=srgb&dl=abstract-architectural-design-architecture-136419.jpg&fm=jpg" x="0" y="0" height="100%" width="100%" />
+                                </pattern>
+                                <rect class="text-background" x="0" y="0" width="100%" height="100%" fill="url(#bg-pattern)" clip-path="url(#urban-text)"></rect>
+                            </svg>
+                        </div>
+                        <div class="slide__description">The hackathon application for Main control department of Moscow</div>
+                        <div class="slide__preview"></div>
+                    </div>
+                </div>
             </div>
             <div id="contacts-content" class="content-block">
                 <div class="contacts-form">
