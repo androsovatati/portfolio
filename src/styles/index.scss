@@ -251,6 +251,7 @@ html, body {
     align-items: stretch;
     background: url('./../assets/images/content-bg-reverse.jpg') no-repeat center center;
     background-size: cover;
+    overflow: hidden;
 
     .content-header {
         display: flex;
@@ -322,12 +323,14 @@ html, body {
         flex-grow: 1;
         display: flex;
         width: 100%;
-        overflow: hidden;
     }
 
     .slide {
+        position: relative;
         flex-shrink: 0;
         width: 100%;
+        overflow: hidden;
+        
         &__title {
             font-size: 55px;
             margin: 120px 80px 0 80px;
@@ -387,6 +390,8 @@ html, body {
             margin-top: 30px;
 
             &__input {
+                position: relative;
+                width: 100%;
                 margin-top: 15px;
                 background: transparent;
                 border: none;
@@ -397,6 +402,14 @@ html, body {
                 font-weight: 700;
                 line-height: 2;
                 outline: none;
+
+                &:focus {
+                    border-bottom: 2px solid #e42ba5;
+                }
+            }
+
+            textarea.form__input {
+                width: 100%;
             }
 
             &__button {
@@ -432,8 +445,8 @@ html, body {
         background: url('./../assets/images/content-bg.jpg') no-repeat center center;
         background-size: cover;
         font-family: 'Courier', monospace;
-        font-size: 16px;
-        font-weight: 400;
+        font-size: 18px;
+        font-weight: 800;
         
         &__title {
             color: #e42ba5;

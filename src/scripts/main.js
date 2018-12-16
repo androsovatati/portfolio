@@ -2,16 +2,32 @@ window.onload = () => {
     const ACTIVE_MENU_ITEM = "menu__item_active";
 
     let currentSection = 0;
+    let currentSlide = 0;
+    const slider = document.getElementsByClassName('content-slider')[0];
+    const slidesCount = document.getElementsByClassName('slide').length;
+    const currentSlideElement = document.getElementById('current-slide');
+    const slidesCountElement = document.getElementById('slides-count');
     const titleWrapper = document.getElementsByClassName("info__title")[0];
     const menuItems = document.getElementsByClassName("menu__item");
     const contentBlocks = document.getElementsByClassName("content-block");
+
+    const nextArrow = document.getElementById('next-btn');
+    const prevArrow = document.getElementById('prev-btn');
 
     let timer = null;
 
     setTimeout(() => {
         titleWrapper.style.transition = "transform .5s ease-in-out";
+        slider.style.transition = "transform .5s ease-in-out";
         titleWrapper.style.transform = `translateX(0)`;
+        slider.style.transform = `translateX(0)`;
+        slidesCountElement.innerText = formatDigit(slidesCount);
+        currentSlideElement.innerText = formatDigit(currentSlide + 1);
     }, 500);
+
+    function formatDigit(digit) {
+        return (digit < 10 && digit > 0) ? `0${digit}` : `${digit}`;
+    }
 
     function debounce(f, ms) {
         let isCalling = false;
@@ -117,6 +133,22 @@ window.onload = () => {
             menuItems[i].classList.add(ACTIVE_MENU_ITEM);
         });
     }
+
+    nextArrow.addEventListener('click', () => {
+        if (currentSlide < slidesCount - 1) {
+            currentSlide++;
+            slider.style.transform = `translateX(${-100 * currentSlide}%)`;
+            currentSlideElement.innerText = formatDigit(currentSlide + 1);
+        }
+    });
+
+    prevArrow.addEventListener('click', () => {
+        if (currentSlide > 0) {
+            currentSlide--;
+            slider.style.transform = `translateX(${-100 * currentSlide}%)`;
+            currentSlideElement.innerText = formatDigit(currentSlide + 1);
+        }
+    });
 
     if (document.addEventListener) {
         if ("onwheel" in document) {
