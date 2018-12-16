@@ -640,6 +640,10 @@ html, body {
         .form {
             margin-top: 30px;
 
+            @media(orientation: portrait) {
+                display: none;
+            }
+
             &__input {
                 position: relative;
                 width: 100%;

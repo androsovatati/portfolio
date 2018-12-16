@@ -4,6 +4,7 @@ window.onload = () => {
     let currentSection = 0;
     let currentSlide = 0;
     let isShowMenu = false;
+    let isMobile = window.innerHeight > window.innerWidth;
 
     const slider = document.getElementsByClassName('content-slider')[0];
     const slidesCount = document.getElementsByClassName('slide').length;
@@ -116,6 +117,12 @@ window.onload = () => {
         isShowMenu = false;
     }
 
+    function showMenu() {
+        menu.style.opacity = 1;
+        menu.style.zIndex = 100;
+        isShowMenu = true;
+    }
+
     for (let i = 0; i < menuItems.length; i++) {
         menuItems[i].addEventListener('click', () => {
             menuItems[currentSection].classList.remove(ACTIVE_MENU_ITEM);
@@ -150,7 +157,9 @@ window.onload = () => {
             } else {
                 socialsBlock.style.display = 'flex';
             }
-            hideMenu();
+            if (isMobile) {
+                hideMenu();
+            }
         });
     }
 
@@ -159,6 +168,12 @@ window.onload = () => {
             currentSlide++;
             slider.style.transform = `translateX(${-100 * currentSlide}%)`;
             currentSlideElement.innerText = formatDigit(currentSlide + 1);
+            if (currentSlide === slidesCount - 1) {
+                nextArrow.classList.add('header-controls__arrow_disabled');
+            } else {
+                prevArrow.classList.remove('header-controls__arrow_disabled');
+                nextArrow.classList.remove('header-controls__arrow_disabled');
+            }
         }
     });
 
@@ -167,18 +182,29 @@ window.onload = () => {
             currentSlide--;
             slider.style.transform = `translateX(${-100 * currentSlide}%)`;
             currentSlideElement.innerText = formatDigit(currentSlide + 1);
+            if (currentSlide === 0) {
+                prevArrow.classList.add('header-controls__arrow_disabled');
+            } else {
+                prevArrow.classList.remove('header-controls__arrow_disabled');
+                nextArrow.classList.remove('header-controls__arrow_disabled');
+            }
         }
     });
 
     menuIcon.addEventListener('click', () => {
-        menu.style.opacity = 1;
-        menu.style.zIndex = 100;
-        isShowMenu = true;
+        showMenu();
     });
 
     menuCloseIcon.addEventListener('click', () => {
         hideMenu();
     });
+
+    window.addEventListener('resize', (e) => {
+        isMobile = window.innerHeight > window.innerWidth;
+        if (!isMobile) {
+            showMenu();
+        }
+    })
 
     if (document.addEventListener) {
         if ("onwheel" in document) {
