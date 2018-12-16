@@ -53,6 +53,7 @@ html, body {
 
     @media(orientation: portrait) {
         position: absolute;
+        width: 100%;
     }
 
     &__logo {
@@ -81,6 +82,62 @@ html, body {
             line-height: 1;
         }
     }
+
+    &__menu-icon {
+        display: none;
+    
+        @media(orientation: portrait) {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            display: block;
+            width: 15px;
+            height: 11px;
+            padding: 10px;
+            font-size: 12px;
+            line-height: 1;
+            background: url('./../assets/images/menu.svg') no-repeat center center;
+            background-size: 20px 20px;
+        }
+    }
+
+    &__pagination {
+        display: none;
+        z-index: 10;
+
+        .pagination__item {
+            position: relative;
+            width: 12px;
+            height: 12px;
+            margin-top: 15px;
+            
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                background: #3d3d3d;
+            }
+
+            &_active {
+                &::after {
+                    background: #c42fa1;
+                }
+            }
+        }
+    
+        @media(orientation: portrait) {
+            position: absolute;
+            top: 125px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }
 
 .menu {
@@ -93,13 +150,15 @@ html, body {
         left: 0;
         right: 0;
         bottom: 0;
-        display: none;
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         margin: 0;
-        background: rgba($color: #141414, $alpha: .9);
-        z-index: 100;
+        background: rgba($color: #141414, $alpha: .95);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity .4s ease;
     }
 
     &__close-icon {
@@ -179,11 +238,20 @@ html, body {
     border-left: 1px solid #2b2b2b;
     overflow: hidden;
 
+    @media(orientation: portrait) {
+        margin-left: 40px;
+        border-left: none;
+    }
+
     &__decorator {
         color: $dark-pink;
         font-family: 'Courier';
         font-size: 18px;
         font-weight: 700;
+
+        @media(orientation: portrait) {
+            font-size: 14px;
+        }
     }
 
     &__title {
@@ -195,6 +263,10 @@ html, body {
         font-size: 4vw;
         letter-spacing: .3vw;
         transform: translateX(100%);
+
+        @media(orientation: portrait) {
+            font-size: 5vh;
+        }
 
         .info-title {
             flex-shrink: 0;
@@ -214,6 +286,12 @@ html, body {
         font-size: 18px;
         font-weight: 700;
 
+        @media(orientation: portrait) {
+            margin-left: 0;
+            padding-left: 4vh;
+            font-size: 14px;
+        }
+
         &::before {
             content: '';
             position: absolute;
@@ -222,6 +300,11 @@ html, body {
             width: $line-width;
             height: 2px;
             background-color: white;
+
+            @media(orientation: portrait) {
+                left: 0;
+                width: 3vh;
+            }
         }
     }
 }

@@ -3,6 +3,8 @@ window.onload = () => {
 
     let currentSection = 0;
     let currentSlide = 0;
+    let isShowMenu = false;
+
     const slider = document.getElementsByClassName('content-slider')[0];
     const slidesCount = document.getElementsByClassName('slide').length;
     const currentSlideElement = document.getElementById('current-slide');
@@ -10,6 +12,9 @@ window.onload = () => {
     const titleWrapper = document.getElementsByClassName("info__title")[0];
     const menuItems = document.getElementsByClassName("menu__item");
     const contentBlocks = document.getElementsByClassName("content-block");
+    const menuIcon = document.getElementById('menu-icon');
+    const menuCloseIcon = document.getElementById('menu-close-icon');
+    const menu = document.getElementById('menu');
 
     const nextArrow = document.getElementById('next-btn');
     const prevArrow = document.getElementById('prev-btn');
@@ -102,6 +107,14 @@ window.onload = () => {
         menuItems[currentSection].classList.add(ACTIVE_MENU_ITEM);
     }
 
+    function hideMenu() {
+        menu.style.opacity = 0;
+        setTimeout(() => {
+            menu.style.zIndex = -1;
+        }, 300);
+        isShowMenu = false;
+    }
+
     for (let i = 0; i < menuItems.length; i++) {
         menuItems[i].addEventListener('click', () => {
             menuItems[currentSection].classList.remove(ACTIVE_MENU_ITEM);
@@ -131,6 +144,7 @@ window.onload = () => {
                 }
             }
             menuItems[i].classList.add(ACTIVE_MENU_ITEM);
+            hideMenu();
         });
     }
 
@@ -148,6 +162,16 @@ window.onload = () => {
             slider.style.transform = `translateX(${-100 * currentSlide}%)`;
             currentSlideElement.innerText = formatDigit(currentSlide + 1);
         }
+    });
+
+    menuIcon.addEventListener('click', () => {
+        menu.style.opacity = 1;
+        menu.style.zIndex = 100;
+        isShowMenu = true;
+    });
+
+    menuCloseIcon.addEventListener('click', () => {
+        hideMenu();
     });
 
     if (document.addEventListener) {
