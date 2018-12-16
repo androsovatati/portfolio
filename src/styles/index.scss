@@ -37,6 +37,12 @@ html, body {
     height: 100vh;
     background:#1a1a1a url('./../assets/images/bg.jpg');
     background-size: cover;
+
+    @media(orientation: portrait) {
+        grid-template-columns: 100%;
+        grid-template-rows: 50% 50%;
+        grid-template-areas: "info" "content";
+    }
 }
 
 .navigation {
@@ -44,6 +50,10 @@ html, body {
     display: flex;
     align-items: center;
     grid-area: navigation;
+
+    @media(orientation: portrait) {
+        position: absolute;
+    }
 
     &__logo {
         position: absolute;
@@ -60,12 +70,61 @@ html, body {
         font-size: 18px;
         letter-spacing: 7px;
         line-height: 25px;
+
+        @media(orientation: portrait) {
+            position: absolute;
+            top: 0;
+            left: 40px;
+            width: 46px;
+            height: 46px;
+            font-size: 12px;
+            line-height: 1;
+        }
     }
 }
 
 .menu {
     margin-top: 6vh;
     margin-left: 6vw;
+
+    @media(orientation: portrait) {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        background: rgba($color: #141414, $alpha: .9);
+        z-index: 100;
+    }
+
+    &__close-icon {
+        width: 20px;
+        height: 20px;
+        background: url('./../assets/images/x.svg') no-repeat center center;
+        background-size: contain;
+    }
+
+    &__close-button {
+        display: none;
+
+        @media(orientation: portrait) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            margin-bottom: 40px;
+            background: #c42fa1;
+            border-radius: 50%;
+        }
+    
+    }
+
     &__item {
         cursor: pointer;
         &:hover {
@@ -76,6 +135,28 @@ html, body {
         &_active {
             .menu__link {
                 opacity: 1;
+            }
+        }
+        @media(orientation: portrait) {
+            position: relative;
+            .menu__link {
+                opacity: 1 !important;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: -5px;
+                right: -5px;
+                height: 5px;
+                transform: translate(0, -50%) scaleX(0);
+                transition: transform .1s ease;
+                background: #c42fa1;
+            }
+            &_active {
+                &::after {
+                    transform: translate(0, -50%) scaleX(1);
+                }
             }
         }
     }
@@ -330,7 +411,7 @@ html, body {
         flex-shrink: 0;
         width: 100%;
         overflow: hidden;
-        
+
         &__title {
             font-size: 55px;
             margin: 120px 80px 0 80px;
@@ -485,6 +566,10 @@ html, body {
     justify-content: flex-end;
     padding: 0 0 10vh 5vw;
     grid-area: socials;
+
+    @media(orientation: portrait) {
+        display: none;
+    }
 
     &__icon {
         display: flex;
