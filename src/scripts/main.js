@@ -15,6 +15,7 @@ window.onload = () => {
     const menuIcon = document.getElementById('menu-icon');
     const menuCloseIcon = document.getElementById('menu-close-icon');
     const menu = document.getElementById('menu');
+    const socialsBlock = document.getElementsByClassName('socials')[0];
 
     const nextArrow = document.getElementById('next-btn');
     const prevArrow = document.getElementById('prev-btn');
@@ -144,6 +145,11 @@ window.onload = () => {
                 }
             }
             menuItems[i].classList.add(ACTIVE_MENU_ITEM);
+            if (i > 0) {
+                socialsBlock.style.display = 'none';
+            } else {
+                socialsBlock.style.display = 'flex';
+            }
             hideMenu();
         });
     }
