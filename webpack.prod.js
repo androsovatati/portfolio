@@ -1,6 +1,6 @@
 const path = require('path');
 
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin'); //installed via npm
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -13,7 +13,7 @@ module.exports = {
     entry: './src/index.js',
     output: {
         filename: '[name].[hash:20].js',
-        path: buildPath
+        path: buildPath,
     },
     module: {
         rules: [
@@ -23,8 +23,8 @@ module.exports = {
                 loader: 'babel-loader',
 
                 options: {
-                    presets: ['env']
-                }
+                    presets: ['env'],
+                },
             },
             {
                 test: /\.(scss|css|sass)$/,
@@ -34,15 +34,15 @@ module.exports = {
                             // translates CSS into CommonJS
                             loader: 'css-loader',
                             options: {
-                                sourceMap: true
-                            }
+                                sourceMap: true,
+                            },
                         },
                         {
                             // Runs compiled CSS through postcss for vendor prefixing
                             loader: 'postcss-loader',
                             options: {
-                                sourceMap: true
-                            }
+                                sourceMap: true,
+                            },
                         },
                         {
                             // compiles Sass to CSS
@@ -50,19 +50,21 @@ module.exports = {
                             options: {
                                 outputStyle: 'expanded',
                                 sourceMap: true,
-                                sourceMapContents: true
-                            }
-                        }
+                                sourceMapContents: true,
+                            },
+                        },
                     ],
-                    fallback: 'style-loader'
+                    fallback: 'style-loader',
                 }),
             },
             {
                 test: /\.svg/,
                 use: {
-                    loader: 'svg-url-loader',
-                    options: {}
-                }
+                    loader: 'file-loader',
+                    options: {
+                        name: 'images/[name].[hash:20].[ext]',
+                    },
+                },
             },
             {
                 // Load all images as base64 encoding if they are smaller than 8192 bytes
@@ -71,11 +73,11 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            name: '[name].[hash:20].[ext]',
-                            limit: 8192
-                        }
-                    }
-                ]
+                            name: 'images/[name].[hash:20].[ext]',
+                            limit: 8192,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(ttf|otf|eot|woff|woff2)$/,
@@ -83,26 +85,27 @@ module.exports = {
                 options: {
                     name: 'fonts/[name].[ext]',
                 },
-            }
-        ]
+            },
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',
+            favicon: 'favicon.ico',
             // Inject the js bundle at the end of the body of the given template
             inject: 'body',
         }),
         new CleanWebpackPlugin(buildPath),
         // new FaviconsWebpackPlugin({
         //     // Your source logo
-        //     logo: './favicon.ico',
+        // logo: './favicon.ico',
         //     // The prefix for all image files (might be a folder or a name)
-        //     prefix: 'icons-[hash]/',
+        // prefix: 'icons-[hash]/',
         //     // Generate a cache file with control hashes and
         //     // don't rebuild the favicons until those hashes change
         //     persistentCache: true,
         //     // Inject the html into the html-webpack-plugin
-        //     inject: true,
+        // inject: true,
         //     // favicon background color (see https://github.com/haydenbleasel/favicons#usage)
         //     background: '#fff',
         //     // favicon app title (see https://github.com/haydenbleasel/favicons#usage)
@@ -123,7 +126,7 @@ module.exports = {
         //     }
         // }),
         new ExtractTextPlugin('styles.[md5:contenthash:hex:20].css', {
-            allChunks: true
+            allChunks: true,
         }),
         new OptimizeCssAssetsPlugin({
             cssProcessor: require('cssnano'),
@@ -132,10 +135,10 @@ module.exports = {
                     inline: false,
                 },
                 discardComments: {
-                    removeAll: true
-                }
+                    removeAll: true,
+                },
             },
-            canPrint: true
-        })
-    ]
+            canPrint: true,
+        }),
+    ],
 };

@@ -21,7 +21,8 @@ $dark-pink: #c50f7a;
 $dark-gray: #2f2f2f;
 $extra-dark-gray: #232323;
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     font-size: 16px;
@@ -33,15 +34,15 @@ html, body {
     display: grid;
     grid-template-columns: 20% 30% 30% 20%;
     grid-template-rows: 1;
-    grid-template-areas: "navigation info content socials";
+    grid-template-areas: 'navigation info content socials';
     height: 100vh;
-    background:#1a1a1a url('./../assets/images/bg.jpg');
+    background: #1a1a1a url('./../assets/images/bg.jpg');
     background-size: cover;
 
-    @media(orientation: portrait) {
+    @media (orientation: portrait) {
         grid-template-columns: 100%;
         grid-template-rows: 50% 50%;
-        grid-template-areas: "info" "content";
+        grid-template-areas: 'info' 'content';
     }
 }
 
@@ -51,7 +52,7 @@ html, body {
     align-items: center;
     grid-area: navigation;
 
-    @media(orientation: portrait) {
+    @media (orientation: portrait) {
         position: absolute;
         width: 100%;
     }
@@ -72,7 +73,7 @@ html, body {
         letter-spacing: 7px;
         line-height: 25px;
 
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             position: absolute;
             top: 0;
             left: 40px;
@@ -85,8 +86,8 @@ html, body {
 
     &__menu-icon {
         display: none;
-    
-        @media(orientation: portrait) {
+
+        @media (orientation: portrait) {
             position: absolute;
             top: 10px;
             right: 20px;
@@ -110,7 +111,7 @@ html, body {
             width: 12px;
             height: 12px;
             margin-top: 15px;
-            
+
             &::after {
                 content: '';
                 position: absolute;
@@ -129,8 +130,8 @@ html, body {
                 }
             }
         }
-    
-        @media(orientation: portrait) {
+
+        @media (orientation: portrait) {
             position: absolute;
             top: 125px;
             right: 30px;
@@ -144,7 +145,7 @@ html, body {
     margin-top: 6vh;
     margin-left: 6vw;
 
-    @media(orientation: portrait) {
+    @media (orientation: portrait) {
         position: fixed;
         top: 0;
         left: 0;
@@ -155,10 +156,10 @@ html, body {
         justify-content: center;
         align-items: center;
         margin: 0;
-        background: rgba($color: #141414, $alpha: .95);
+        background: rgba($color: #141414, $alpha: 0.95);
         z-index: -1;
         opacity: 0;
-        transition: opacity .4s ease;
+        transition: opacity 0.4s ease;
     }
 
     &__close-icon {
@@ -171,7 +172,7 @@ html, body {
     &__close-button {
         display: none;
 
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -181,14 +182,13 @@ html, body {
             background: #c42fa1;
             border-radius: 50%;
         }
-    
     }
 
     &__item {
         cursor: pointer;
         &:hover {
             .menu__link {
-                opacity: .7;
+                opacity: 0.7;
             }
         }
         &_active {
@@ -196,7 +196,7 @@ html, body {
                 opacity: 1;
             }
         }
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             position: relative;
             .menu__link {
                 opacity: 1 !important;
@@ -209,7 +209,7 @@ html, body {
                 right: -5px;
                 height: 5px;
                 transform: translate(0, -50%) scaleX(0);
-                transition: transform .1s ease;
+                transition: transform 0.1s ease;
                 background: #c42fa1;
             }
             &_active {
@@ -225,8 +225,8 @@ html, body {
         line-height: 3.5;
         text-transform: uppercase;
         text-decoration: none;
-        opacity: .3;
-        transition: opacity .2s ease;
+        opacity: 0.3;
+        transition: opacity 0.2s ease;
     }
 }
 
@@ -238,7 +238,7 @@ html, body {
     border-left: 1px solid #2b2b2b;
     overflow: hidden;
 
-    @media(orientation: portrait) {
+    @media (orientation: portrait) {
         margin-left: 40px;
         border-left: none;
     }
@@ -249,7 +249,7 @@ html, body {
         font-size: 18px;
         font-weight: 700;
 
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             font-size: 14px;
         }
     }
@@ -261,10 +261,10 @@ html, body {
         margin-top: 3vh;
         color: white;
         font-size: 4vw;
-        letter-spacing: .3vw;
+        letter-spacing: 0.3vw;
         transform: translateX(100%);
 
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             font-size: 5vh;
         }
 
@@ -286,7 +286,7 @@ html, body {
         font-size: 18px;
         font-weight: 700;
 
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             margin-left: 0;
             padding-left: 4vh;
             font-size: 14px;
@@ -301,7 +301,7 @@ html, body {
             height: 2px;
             background-color: white;
 
-            @media(orientation: portrait) {
+            @media (orientation: portrait) {
                 left: 0;
                 width: 3vh;
             }
@@ -323,7 +323,7 @@ html, body {
     right: 0;
     height: 100%;
     grid-area: content;
-    transition: top .5s ease-in-out;
+    transition: top 0.5s ease-in-out;
 
     &:not(:first-child) {
         top: 100%;
@@ -332,7 +332,7 @@ html, body {
 #home-content {
     display: flex;
     align-items: flex-end;
-    background: #131313 radial-gradient(circle at 100% 0%, rgba($color: $pink, $alpha: .07) 0%, transparent 80%);
+    background: #131313 radial-gradient(circle at 100% 0%, rgba($color: $pink, $alpha: 0.07) 0%, transparent 80%);
 
     .content-block__phone {
         position: absolute;
@@ -344,7 +344,7 @@ html, body {
             background: url('./../assets/images/Iphone 1.png') no-repeat center center;
             background-size: contain;
 
-            @media(orientation: portrait) {
+            @media (orientation: portrait) {
                 top: 0;
                 left: auto;
                 right: 0;
@@ -362,7 +362,7 @@ html, body {
             background-size: contain;
             transform: translate(20%, -50%);
 
-            @media(orientation: portrait) {
+            @media (orientation: portrait) {
                 top: auto;
                 bottom: 0;
                 width: 20vh;
@@ -381,7 +381,7 @@ html, body {
         font-size: 4vw;
         text-transform: uppercase;
 
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             height: 28vh;
             margin-left: 40px;
             margin-bottom: 60px;
@@ -403,10 +403,10 @@ html, body {
         justify-content: space-between;
         flex-grow: 1;
         padding: 50px;
-        border-bottom: 1px solid rgba($color: #3b3b3b, $alpha: .2);
+        border-bottom: 1px solid rgba($color: #3b3b3b, $alpha: 0.2);
         font-size: 18px;
 
-        @media(max-width: 1200px) {
+        @media (max-width: 1200px) {
             padding: 40px 30px;
             font-size: 16px;
         }
@@ -419,7 +419,7 @@ html, body {
             letter-spacing: 3.6px;
             text-transform: uppercase;
 
-            @media(max-width: 1200px) {
+            @media (max-width: 1200px) {
                 margin-bottom: 15px;
             }
         }
@@ -438,7 +438,7 @@ html, body {
                 color: #323232;
             }
 
-            @media(max-width: 1200px) {
+            @media (max-width: 1200px) {
                 font-size: 14px;
                 line-height: 1.2;
             }
@@ -462,11 +462,11 @@ html, body {
         align-items: center;
         padding: 75px 80px 0 80px;
 
-        @media(max-width: 1200px) {
+        @media (max-width: 1200px) {
             padding: 40px 30px 0 30px;
         }
 
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             position: absolute;
             top: 50px;
             right: 40px;
@@ -484,21 +484,21 @@ html, body {
             font-size: 18px;
             font-weight: 700;
 
-            @media(orientation: portrait) {
+            @media (orientation: portrait) {
                 font-size: 14px;
             }
 
             &::before {
-               content: '';
-               position: absolute;
-               top: 49%;
-               left: 0;
-               width: 35px;
-               height: 2px;
-               background: white;
-               @media(orientation: portrait) {
-                   display: none;
-               }
+                content: '';
+                position: absolute;
+                top: 49%;
+                left: 0;
+                width: 35px;
+                height: 2px;
+                background: white;
+                @media (orientation: portrait) {
+                    display: none;
+                }
             }
         }
         .page-number {
@@ -527,7 +527,7 @@ html, body {
                 cursor: pointer;
 
                 &_disabled {
-                    opacity: .3;
+                    opacity: 0.3;
                     cursor: default;
                 }
             }
@@ -555,8 +555,7 @@ html, body {
         width: 100%;
         overflow: hidden;
 
-        @media(orientation: portrait) {
-            
+        @media (orientation: portrait) {
         }
 
         &__title {
@@ -567,12 +566,12 @@ html, body {
                 width: calc(100% - 80px);
             }
 
-            @media(max-width: 1200px) {
+            @media (max-width: 1200px) {
                 font-size: 30px;
                 margin: 80px 30px 0 30px;
             }
 
-            @media(orientation: portrait) {
+            @media (orientation: portrait) {
                 font-size: 4vh;
                 margin: 40px 40px 0 40px;
                 height: 10vh;
@@ -588,13 +587,13 @@ html, body {
             font-weight: 700;
             line-height: 1.5;
 
-            @media(max-width: 1200px) {
+            @media (max-width: 1200px) {
                 margin-top: 20px;
                 padding: 0 30px;
                 font-size: 16px;
             }
 
-            @media(orientation: portrait) {
+            @media (orientation: portrait) {
                 padding: 0 40px;
                 font-size: 14px;
                 margin-top: 30px;
@@ -610,7 +609,7 @@ html, body {
             background: url('./../assets/images/Macbook1.png') no-repeat center center;
             background-size: contain;
 
-            @media(orientation: portrait) {
+            @media (orientation: portrait) {
                 bottom: 0;
                 left: 50%;
                 width: 80%;
@@ -626,7 +625,6 @@ html, body {
         }
     }
 
-    
     #smass {
         .slide__preview {
             background: url('./../assets/images/smass-preview.png') no-repeat center center;
@@ -634,7 +632,6 @@ html, body {
         }
     }
 
-    
     #krist {
         .slide__preview {
             background: url('./../assets/images/krist-preview.png') no-repeat center center;
@@ -653,13 +650,13 @@ html, body {
     .contacts-form {
         padding: 75px 80px;
         height: 70%;
-        background: rgba(19,19,19,.3);
-        border-bottom: 1px solid rgba($color: #3b3b3b, $alpha: .2);
+        background: rgba(19, 19, 19, 0.3);
+        border-bottom: 1px solid rgba($color: #3b3b3b, $alpha: 0.2);
 
-        @media(max-width: 1200px) {
+        @media (max-width: 1200px) {
             padding: 40px 30px;
         }
-        
+
         &__title {
             width: 177px;
             color: white;
@@ -674,7 +671,7 @@ html, body {
         .form {
             margin-top: 30px;
 
-            @media(orientation: portrait) {
+            @media (orientation: portrait) {
                 display: none;
             }
 
@@ -737,11 +734,11 @@ html, body {
         font-size: 18px;
         font-weight: 800;
 
-        @media(max-width: 1200px) {
+        @media (max-width: 1200px) {
             padding: 40px 30px;
             font-size: 14px;
         }
-        
+
         &__title {
             color: #e42ba5;
             font-family: Gilroy;
@@ -757,12 +754,12 @@ html, body {
                 color: white;
             }
         }
-        
+
         &__skype {
             margin-top: 7px;
             a {
                 padding-left: 7px;
-                color: white;         
+                color: white;
             }
         }
 
@@ -780,13 +777,12 @@ html, body {
     padding: 0 0 10vh 5vw;
     grid-area: socials;
 
-    @media(orientation: portrait) {
+    @media (orientation: portrait) {
         position: absolute;
         flex-direction: row;
         bottom: 50px;
         left: 40px;
         padding: 0;
-
     }
 
     &__icon {
@@ -798,13 +794,13 @@ html, body {
         height: 50px;
         border-radius: 50%;
         background-color: $extra-dark-gray;
-        transition: background-color .2s ease;
+        transition: background-color 0.2s ease;
         cursor: pointer;
         &:hover {
             background-color: $pink;
         }
 
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             width: 40px;
             height: 40px;
             margin-right: 10px;
@@ -818,7 +814,7 @@ html, body {
         height: 18px;
         background: url('./../assets/images/vk.svg') no-repeat center center;
         background-size: contain;
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             width: 15px;
         }
     }
@@ -827,7 +823,7 @@ html, body {
         height: 19px;
         background: url('./../assets/images/in.svg') no-repeat center center;
         background-size: contain;
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             width: 15px;
         }
     }
@@ -836,7 +832,7 @@ html, body {
         height: 20px;
         background: url('./../assets/images/git.svg') no-repeat center center;
         background-size: contain;
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             width: 15px;
         }
     }
@@ -845,7 +841,7 @@ html, body {
         height: 18px;
         background: url('./../assets/images/inst.svg') no-repeat center center;
         background-size: contain;
-        @media(orientation: portrait) {
+        @media (orientation: portrait) {
             width: 15px;
         }
     }

@@ -7,7 +7,7 @@ module.exports = {
     entry: './src/index.js',
     devServer: {
         port: 8080,
-        contentBase: path.join(__dirname, "dist")
+        contentBase: path.join(__dirname, 'dist'),
     },
     module: {
         rules: [
@@ -16,44 +16,44 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 options: {
-                    presets: ['env']
-                }
+                    presets: ['env'],
+                },
             },
             {
                 test: /\.(scss|css)$/,
                 use: [
                     {
                         // creates style nodes from JS strings
-                        loader: "style-loader",
+                        loader: 'style-loader',
                         options: {
-                            sourceMap: true
-                        }
+                            sourceMap: true,
+                        },
                     },
                     {
                         // translates CSS into CommonJS
-                        loader: "css-loader",
+                        loader: 'css-loader',
                         options: {
-                            sourceMap: true
-                        }
+                            sourceMap: true,
+                        },
                     },
                     {
                         // compiles Sass to CSS
-                        loader: "sass-loader",
+                        loader: 'sass-loader',
                         options: {
                             outputStyle: 'expanded',
                             sourceMap: true,
-                            sourceMapContents: true
-                        }
-                    }
+                            sourceMapContents: true,
+                        },
+                    },
                     // Please note we are not running postcss here
-                ]
+                ],
             },
             {
                 test: /\.svg/,
                 use: {
-                    loader: 'svg-url-loader',
-                    options: {}
-                }
+                    loader: 'file-loader',
+                    options: {},
+                },
             },
             {
                 // Load all images as base64 encoding if they are smaller than 8192 bytes
@@ -64,10 +64,10 @@ module.exports = {
                         options: {
                             // On development we want to see where the file is coming from, hence we preserve the [path]
                             name: '[path][name].[ext]?hash=[hash:20]',
-                            limit: 8192
-                        }
-                    }
-                ]
+                            limit: 8192,
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(ttf|otf|eot|woff|woff2)$/,
@@ -75,13 +75,13 @@ module.exports = {
                 options: {
                     name: 'fonts/[name].[ext]',
                 },
-            }
+            },
         ],
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: './index.html',
-            inject: true
-        })
-    ]
+            inject: true,
+        }),
+    ],
 };
