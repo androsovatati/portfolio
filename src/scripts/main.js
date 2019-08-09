@@ -1,5 +1,5 @@
 window.onload = () => {
-    const ACTIVE_MENU_ITEM = "menu__item_active";
+    const ACTIVE_MENU_ITEM = 'menu__item_active';
 
     let currentSection = 0;
     let currentSlide = 0;
@@ -10,9 +10,9 @@ window.onload = () => {
     const slidesCount = document.getElementsByClassName('slide').length;
     const currentSlideElement = document.getElementById('current-slide');
     const slidesCountElement = document.getElementById('slides-count');
-    const titleWrapper = document.getElementsByClassName("info__title")[0];
-    const menuItems = document.getElementsByClassName("menu__item");
-    const contentBlocks = document.getElementsByClassName("content-block");
+    const titleWrapper = document.getElementsByClassName('info__title')[0];
+    const menuItems = document.getElementsByClassName('menu__item');
+    const contentBlocks = document.getElementsByClassName('content-block');
     const menuIcon = document.getElementById('menu-icon');
     const menuCloseIcon = document.getElementById('menu-close-icon');
     const menu = document.getElementById('menu');
@@ -24,8 +24,8 @@ window.onload = () => {
     let timer = null;
 
     setTimeout(() => {
-        titleWrapper.style.transition = "transform .5s ease-in-out";
-        slider.style.transition = "transform .5s ease-in-out";
+        titleWrapper.style.transition = 'transform .5s ease-in-out';
+        slider.style.transition = 'transform .5s ease-in-out';
         titleWrapper.style.transform = `translateX(0)`;
         slider.style.transform = `translateX(0)`;
         slidesCountElement.innerText = formatDigit(slidesCount);
@@ -33,7 +33,7 @@ window.onload = () => {
     }, 500);
 
     function formatDigit(digit) {
-        return (digit < 10 && digit > 0) ? `0${digit}` : `${digit}`;
+        return digit < 10 && digit > 0 ? `0${digit}` : `${digit}`;
     }
 
     function debounce(f, ms) {
@@ -62,7 +62,6 @@ window.onload = () => {
                 debounce(previousPage, 5000)();
             }
         }, 35);
-        
     }
 
     function onKeyDown({ keyCode }) {
@@ -73,8 +72,7 @@ window.onload = () => {
         }
     }
 
-    function changePage(i) {
-    }
+    function changePage(i) {}
 
     function nextPage() {
         // debugger;
@@ -101,7 +99,7 @@ window.onload = () => {
         currentSection--;
         titleWrapper.style.transform = `translateX(${-100 * currentSection}%)`;
         for (let i = currentSection + 1; i <= 3; i++) {
-            contentBlocks[i].style.top = "100%";
+            contentBlocks[i].style.top = '100%';
         }
         for (let i = 0; i <= currentSection; i++) {
             contentBlocks[i].style.opacity = 1;
@@ -145,18 +143,18 @@ window.onload = () => {
             } else {
                 titleWrapper.style.transform = `translateX(${-100 * currentSection}%)`;
                 for (let i = currentSection + 1; i <= 3; i++) {
-                    contentBlocks[i].style.top = "100%";
+                    contentBlocks[i].style.top = '100%';
                 }
                 for (let i = 0; i <= currentSection; i++) {
                     contentBlocks[i].style.opacity = 1;
                 }
             }
             menuItems[i].classList.add(ACTIVE_MENU_ITEM);
-            if (i > 0) {
-                socialsBlock.style.display = 'none';
-            } else {
-                socialsBlock.style.display = 'flex';
-            }
+            // if (i > 0) {
+            //     socialsBlock.style.display = 'none';
+            // } else {
+            //     socialsBlock.style.display = 'flex';
+            // }
             if (isMobile) {
                 hideMenu();
             }
@@ -204,21 +202,21 @@ window.onload = () => {
         if (!isMobile) {
             showMenu();
         }
-    })
+    });
 
     if (document.addEventListener) {
-        if ("onwheel" in document) {
+        if ('onwheel' in document) {
             // IE9+, FF17+, Ch31+
-            document.addEventListener("wheel", onMouseWheel);
-        } else if ("onmousewheel" in document) {
+            document.addEventListener('wheel', onMouseWheel);
+        } else if ('onmousewheel' in document) {
             // устаревший вариант события
-            document.addEventListener("mousewheel", onMouseWheel);
+            document.addEventListener('mousewheel', onMouseWheel);
         } else {
             // Firefox < 17
-            document.addEventListener("MozMousePixelScroll", onMouseWheel);
+            document.addEventListener('MozMousePixelScroll', onMouseWheel);
         }
 
-        document.addEventListener("keydown", onKeyDown);
+        document.addEventListener('keydown', onKeyDown);
 
         // for (let i = 0; i < menuItems.length; i++) {
         //     menuItems[i].addEventListener('click', () => {
@@ -228,6 +226,6 @@ window.onload = () => {
         // }
     } else {
         // IE8-
-        document.attachEvent("onmousewheel", onMouseWheel);
+        document.attachEvent('onmousewheel', onMouseWheel);
     }
 };

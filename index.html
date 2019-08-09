@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <title>TA</title>
+    <title>Tanyachickk | Frontend developer</title>
 </head>
 <body>
     <main class="page">
         <div class="navigation">
             <div class="navigation__logo">
-                <span>TA</span>
-                <span>TA</span>
+                <span>TK</span>
+                <span>TK</span>
             </div>
             <div class="navigation__menu-icon" id="menu-icon"></div>
             <div class="navigation__pagination pagination" id="pagination">
@@ -68,16 +68,16 @@
                     <defs>
                         <clipPath id="clipping-text">
                             <text x="0" y="0" dx="0" dy="0">
-                                <tspan x="0" dy="1em">AND I'M</tspan>
-                                <tspan x="0" dy="1em">FRONTEND</tspan>
-                                <tspan x="0" dy="1em">DEVELOPER</tspan>
+                                <tspan x="0" dy="1.2em">AND I'M</tspan>
+                                <tspan x="0" dy="1.2em">FRONTEND</tspan>
+                                <tspan x="0" dy="1.2em">DEVELOPER.</tspan>
                             </text>
                         </clipPath>
                     </defs>
-                    <pattern id="bg-pattern" width="100%" height="100%">
-                        <image preserveAspectRatio="none" xlink:href="<%=require('./src/assets/images/pink-bg.jpg')%>" x="0" y="0" height="100%" width="100%" />
+                    <pattern id="bg-pattern" width="100%" height="100%" patternTransform="rotate(0)">
+                        <image preserveAspectRatio="none" xlink:href="<%=require('./src/assets/images/pink-bg.jpg')%>" x="-205%" y="-215%" height="400%" width="400%" />
                     </pattern>
-                    <rect class="text-background" x="0" y="0" width="100%" height="100%" fill="url(#bg-pattern)" clip-path="url(#clipping-text)"></rect>
+                    <rect class="text-background" x="0" y="0"  width="100%" height="100%" fill="url(#bg-pattern)" clip-path="url(#clipping-text)"></rect>
                 </svg>
             </div>
             <div id="about-content" class="content-block">
@@ -186,41 +186,44 @@
             </div>
             <div id="contacts-content" class="content-block">
                 <div class="contacts-form">
+                    <div class="contacts-form__overflow"></div>
                     <div class="contacts-form__title">
-                        Tell me about</br>
-                        your project
+                        Write me
                     </div>
                     <form class="form">
-                        <input class="form__input" type="text" name="name" placeholder="Name" required>
-                        <input class="form__input" type="tel" name="phone" placeholder="Phone" required>
+                        <input class="form__input" type="text" name="name" placeholder="Name">
+                        <input class="form__input" type="tel" name="phone" placeholder="Phone">
                         <input class="form__input" type="email" name="mail" placeholder="E-mail" required>
                         <textarea class="form__input" name="message" placeholder="Message" rows="1" required></textarea>
                         <button class="form__button">Send</button>
                     </form>
                 </div>
                 <div class="contacts-data">
-                    <div class="contacts-data__title">Contacts</div>
-                    <div class="contacts-data__email">E.:
-                        <a href="mailto:androsovatati@mail.ru">androsovatati@mail.ru</a>
+                    <div class="contacts-data__overflow"></div>
+                    <div class="contacts-data__content">
+                        <div class="contacts-data__title">Contacts</div>
+                        <div class="contacts-data__email">E.:
+                            <a href="mailto:tatikurochkina@gmail.com">tatikurochkina@gmail.com</a>
+                        </div>
+                        <div class="contacts-data__skype">Skp.:
+                            <a href="skype:tanyachickk?chat">tanyachickk</a>
+                        </div>
+                        <div class="contacts-data__location">Located in Samara</div>
                     </div>
-                    <div class="contacts-data__skype">Skp.:
-                        <a href="skype:androsovatati?chat">androsovatati</a>
-                    </div>
-                    <div class="contacts-data__location">Located in Samara</div>
                 </div>
             </div>
         </div>
         <div class="socials">
-            <a href="https://vk.com/androsovatati" target="_blank" class="socials__icon">
+            <a href="https://vk.com/tanyachickk" target="_blank" class="socials__icon">
                 <div class="social-icon social-icon_vk"></div>
             </a>
-            <a href="https://www.linkedin.com/in/tatiana-androsova-217b24163/" target="_blank" class="socials__icon">
+            <a href="https://www.linkedin.com/in/tatiana-kurochkina-217b24163/" target="_blank" class="socials__icon">
                 <div class="social-icon social-icon_in"></div>
             </a>
-            <a href="https://github.com/androsovatati" target="_blank" class="socials__icon">
+            <a href="https://github.com/tanyachickk" target="_blank" class="socials__icon">
                 <div class="social-icon social-icon_git"></div>
             </a>
-            <a href="https://www.instagram.com/androsovatati/" target="_blank" class="socials__icon">
+            <a href="https://www.instagram.com/tanyachickk/" target="_blank" class="socials__icon">
                 <div class="social-icon social-icon_inst"></div>
             </a>
         </div>
